@@ -1,0 +1,19 @@
+.hamburger-button {
+  margin-right: 3rem;
+}
+
+.navbar-brand {
+  margin-right: 3rem !important;
+  cursor: grab;
+}
+.navbar-brand:hover {
+  color: lightgray !important;
+}
+
+.action span {
+  border-radius: 4px;
+  padding: 6px;
+}
+
+@media (max-width: 64rem) {
+}

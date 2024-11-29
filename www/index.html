@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oxytimer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="./assets/images/oxytimer-logo.png" alt="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">O projekcie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Galeria</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#start">Jak zacząć</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Kontakt</a>
+            </li>
+          </ul>
+          <a href="https://oxytimer.pl/app/" class="btn btn-brand ms-lg-3"
+            >Zaloguj się</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Hero -->
+    <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="fw-semibold display-1 text-white">Witaj w Oxytimer</h1>
+            <h5 class="text-white mt-3 mb-4">
+              Oxytimer służy do monitorowania powietrza strażaków podczas akcji.
+            </h5>
+            <div>
+              <a href="https://oxytimer.pl/app/" class="btn btn-brand me-2"
+                >Zaloguj się</a
+              >
+              <a href="#start" class="btn btn-light ms-2">Jak zacząć</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="section-title">
+              <h1 class="display-4 fw-semibold">O projekcie</h1>
+              <div class="line"></div>
+              <p>
+                Oxytimer to aplikacja zaprojektowana jako innowacyjna
+                alternatywa dla tradycyjnych systemów zarządzania powietrzem.
+                Aplikacja umożliwia szybkie i precyzyjne obliczanie ilości
+                pozostałego powietrza w butlach, co jest przydatne dowódcy
+                podczas zarządzania akcją.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-6">
+            <img src="./assets/images/about-oxytimer.jpg" alt="about" />
+          </div>
+          <div class="col-lg-5">
+            <h1>Informacje o Oxytimer</h1>
+            <p class="mt-3 mb-4">
+              Oxytimer posiada minimalistyczny wygląd, który nie rozprasza
+              operatora, a poniższe funkcje znacząco ułatwiają zarządzanie akcją
+              ratunkową:
+            </p>
+            <div class="d-flex pt-4 mb-3">
+              <div class="iconbox me-4">
+                <i class="ri-circle-fill"></i>
+              </div>
+              <div>
+                <h5>Dodawanie ratowników</h5>
+                <p>
+                  Możliwość tworzenia bazy ratowników umożliwia ich szybkie
+                  przydzielenie do akcji.
+                </p>
+              </div>
+            </div>
+            <div class="d-flex mb-3">
+              <div class="iconbox me-4">
+                <i class="ri-circle-fill"></i>
+              </div>
+              <div>
+                <h5>Tworzenie ROTY</h5>
+                <p>
+                  Przydział ratowników do roty odbywa się za pomocą zaledwie
+                  kilku kliknięć.
+                </p>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="iconbox me-4">
+                <i class="ri-circle-fill"></i>
+              </div>
+              <div>
+                <h5>Przebieg akcji i jej wyniki</h5>
+                <p>
+                  Po zakończeniu akcji generowany jest raport PDF zawierający
+                  szczegółowe wyniki.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Portfolio -->
+    <section id="portfolio" class="section-padding border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="section-title">
+              <h1 class="display-4 fw-semibold">Zdjęcia z projektu</h1>
+              <div class="line"></div>
+              <p>Poniżej przedstawiamy kilka zdjęć z naszego projektu</p>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="portfolio-item image-zoom">
+              <div class="image-zoom-wrapper">
+                <img src="./assets/images/main-menu.png" alt="rota-menu" />
+              </div>
+              <a
+                href="./assets/images/main-menu.png"
+                data-fancybox="gallery"
+                class="iconbox">
+                <i class="ri-search-line"></i>
+              </a>
+            </div>
+            <div class="portfolio-item image-zoom mt-4">
+              <div class="image-zoom-wrapper">
+                <img src="./assets/images/add-rescuer.png" alt="rota-menu" />
+              </div>
+              <a
+                href="./assets/images/add-rescuer.png"
+                data-fancybox="gallery"
+                class="iconbox">
+                <i class="ri-search-line"> </i>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="portfolio-item image-zoom">
+              <div class="image-zoom-wrapper">
+                <img src="./assets/images/new-action.png" alt="rota-menu" />
+              </div>
+              <a
+                href="./assets/images/new-action.png"
+                data-fancybox="gallery"
+                class="iconbox">
+                <i class="ri-search-line"></i>
+              </a>
+            </div>
+            <div class="portfolio-item image-zoom mt-4">
+              <div class="image-zoom-wrapper">
+                <img src="./assets/images/add-rota.png" alt="rota-menu" />
+              </div>
+              <a
+                href="./assets/images/add-rota.png"
+                data-fancybox="gallery"
+                class="iconbox">
+                <i class="ri-search-line"> </i>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="portfolio-item image-zoom">
+              <div class="image-zoom-wrapper">
+                <img src="./assets/images/action-table.png" alt="rota-menu" />
+              </div>
+              <a
+                href="./assets/images/action-table.png"
+                data-fancybox="gallery"
+                class="iconbox">
+                <i class="ri-search-line"></i>
+              </a>
+            </div>
+            <div class="portfolio-item image-zoom mt-4">
+              <div class="image-zoom-wrapper">
+                <img src="./assets/images/pdf-raport.png" alt="rota-menu" />
+              </div>
+              <a
+                href="./assets/images/pdf-raport.png"
+                data-fancybox="gallery"
+                class="iconbox">
+                <i class="ri-search-line"> </i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Start -->
+    <section id="start" class="section-padding border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="section-title">
+              <h1 class="display-4 fw-semibold">Jak zacząć</h1>
+              <div class="line"></div>
+              <p>
+                Aby zacząć korzystać z Oxytimer wypełnij poniższy formularz.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <form class="row g-3 p-lg-5 p-4 start theme-shadow">
+              <div class="form-group col-lg-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="newUserFirstName"
+                  placeholder="Podaj imię" />
+              </div>
+              <div class="form-group col-lg-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="newUserLastName"
+                  placeholder="Podaj nazwisko" />
+              </div>
+              <div class="form-group col-lg-12">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="newUserEmail"
+                  placeholder="Podaj email" />
+              </div>
+              <div class="form-group col-lg-12 d-grid mt-4">
+                <button
+                  type="submit"
+                  class="btn btn-brand"
+                  onclick="sendNewUserEmail()">
+                  Wyślij zgłoszenie
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="section-title">
+              <h1 class="display-4 text-white fw-semibold">Kontakt</h1>
+              <div class="line bg-white"></div>
+              <p class="text-white">
+                Jeśli masz jakieś pytania odnośnie projektu wyślij nam wiadomość
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <form class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
+              <div class="form-group col-lg-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Podaj imię"
+                  id="contactFirstName" />
+              </div>
+              <div class="form-group col-lg-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Podaj nazwisko"
+                  id="contactLastName" />
+              </div>
+              <div class="form-group col-lg-12">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Podaj Email"
+                  id="contactEmail" />
+              </div>
+              <div class="form-group col-lg-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Podaj temat pytania"
+                  id="contactSubject" />
+              </div>
+              <div class="form-group col-lg-12">
+                <textarea
+                  name="message"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Napisz wiadomość"
+                  id="contactMessage"></textarea>
+              </div>
+              <div class="form-group col-lg-12 d-grid">
+                <button
+                  type="submit"
+                  class="btn btn-brand"
+                  onclick="sendContactEmail()">
+                  Wyślij wiadomość
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-dark">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gx-5">
+            <div class="col-lg-5 col-sm-6">
+              <a href="#">
+                <img src="./assets/images/oxytimer-logo.png" alt="logo-dark" />
+              </a>
+              <p class="mt-4 pe-5">
+                Aplikacja Oxytimer została stworzona jako projekt edukacyjny w
+                ramach nauki programowania.
+              </p>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+              <h5 class="mb-0 text-white">Członkowie zespołu</h5>
+              <div class="line"></div>
+
+              <ul>
+                <li>Maciek</li>
+                <li>Krystian</li>
+                <li>Wojtek</li>
+                <li>Szymon</li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h5 class="mb-0 text-white">Kontakt</h5>
+              <div class="line"></div>
+              <ul>
+                <li>37-450 Stalowa Wola</li>
+                <li>tel: -</li>
+                <li>email: -</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row justify-content-center">
+            <!-- <div class="col-auto">
+              <p class="mb-0">© Copyright Oxytimer. All Rights Reserved</p>
+            </div> -->
+            <div class="col-auto">
+              <p class="mb-0">
+                Designed by <a href="https://github.com/wojces">wojces</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        //
+      });
+    </script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+.action-btn {
+  width: 50%;
+  height: 80%;
+  /* padding: 0.375rem 0.75rem; */
+  font-size: 0.75rem;
+  display: inline-block;
+  font-weight: 400;
+  color: #6c757d;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #6c757d;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Styl przycisku po najechaniu kursorem */
+.action-btn:hover {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Styl przycisku po kliknięciu */
+.action-btn:active {
+  color: #fff;
+  background-color: #545b62;
+  border-color: #4e555b;
+}
+
+/* Styl przycisku po uzyskaniu focusu (np. po kliknięciu klawiaturą) */
+/* .action-btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+} */
+
+/* Styl przycisku po wyłączeniu (disabled) */
+.action-btn:disabled {
+  color: #6c757d;
+  background-color: transparent;
+  border-color: #6c757d;
+  opacity: 0.65;
+  cursor: not-allowed;
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rota PDF</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      .rota {
+        page-break-inside: avoid;
+        padding: 10px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        border: 0.5px solid black;
+      }
+      th,
+      td {
+        padding: 8px;
+        border: 0.5px solid black;
+      }
+      h1,
+      h2 {
+        text-align: center;
+      }
+      .pressure-table,
+      .time-table,
+      .consumption-table {
+        margin-top: 20px;
+      }
+      .title-table {
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section class="table-data" style="page-break-after: always">
+        <h1>{{tableName}}</h1>
+        <p><b>Kontroler: </b> {{userName}}</p>
+        <p><b>Lokalizacja: </b> {{location}}</p>
+        <p><b>Data utworzenia: </b> {{createdAt}}</p>
+        {{#if finishedAt}}
+        <p><b>Data zakończenia: </b> {{finishedAt}}</p>
+        {{/if}}
+      </section>
+      <section>
+        {{#each rotaList}}
+        <div class="rota" style="page-break-after: always">
+          <div class="rota-data">
+            <h1>Rota: {{name}}</h1>
+            <p>Wzieła udział w akcji: {{'rotaIsUsed' timestamps.IN}}</p>
+            <p>
+              Czas akcji roty: {{'countRotaActionTime' timestamps.IN
+              timestamps.OUT}}
+            </p>
+          </div>
+          <h2 class="title-table">Tabela czasów roty {{name}}</h2>
+          <table class="time-table">
+            <thead>
+              <tr>
+                <th>{{name}}</th>
+                <th>wejście</th>
+                {{#each timestamps.k}}
+                <th>kontrola {{'indexPlusOne' @index}}</th>
+                {{/each}}
+                <th>wyjście</th>
+                <th>szac. wyjście</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>czas</td>
+                <td>{{'formatToTime' timestamps.IN}}</td>
+                {{#each timestamps.k}}
+                <td>{{'formatToTime' this}}</td>
+                {{/each}}
+                <td>{{'formatToTime' timestamps.OUT}}</td>
+                <td>{{'formatToTime' timestamps.estimatedExitTime}}</td>
+              </tr>
+              <tr>
+                <td>-</td>
+                <td>{{'formatToTime' timestamps.IN}}</td>
+                {{#each timestamps.k}}
+                <td>{{'formatToDifferenceTime' ../timestamps.IN this}}</td>
+                {{/each}}
+                <td>
+                  {{'formatToDifferenceTime' timestamps.IN timestamps.OUT}}
+                </td>
+                <td>
+                  {{'formatToDifferenceTime' timestamps.IN
+                  timestamps.estimatedExitTime}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="title-table">
+            Tabela ciśnienia roty {{name}} w jednostce [bar]
+          </h2>
+          <table class="pressure-table">
+            <thead>
+              <tr>
+                <th>{{name}}</th>
+                <th>wejście</th>
+                {{#each timestamps.k}}
+                <th>kontrola {{'indexPlusOne' @index}}</th>
+                {{/each}}
+                <th>wyjście</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{{rescuers.[0].name}}</th>
+                {{#if timestamps.IN}}
+                <td>{{rescuers.[0].IN}}</td>
+                {{else}}
+                <td>-</td>
+                {{/if}} {{#each rescuers.[0].k}}
+                <td>{{'isValueEmpty' this}}</td>
+                {{/each}}
+                <td>{{'isValueEmpty' rescuers.[0].OUT}}</td>
+              </tr>
+              <tr>
+                <th>{{rescuers.[1].name}}</th>
+                {{#if timestamps.IN}}
+                <td>{{rescuers.[1].IN}}</td>
+                {{else}}
+                <td>-</td>
+                {{/if}} {{#each rescuers.[1].k}}
+                <td>{{'isValueEmpty' this}}</td>
+                {{/each}}
+                <td>{{'isValueEmpty' rescuers.[1].OUT}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="title-table">
+            Tabela średniego zużycia ciśnienia roty {{name}} w jednostce
+            [bar/min]
+          </h2>
+          <table class="consumption-table">
+            <thead>
+              <tr>
+                <th>średnie zużycie</th>
+                {{#if ('notEmptyK' timestamps.k)}} {{#each ('sliceArray'
+                avgPressureConsumption)}}
+                <th>
+                  {{'consumptionMeasurement' ../avgPressureConsumption @index}}
+                </th>
+                {{/each}} {{else}}
+                <th>wejście-wyjście</th>
+                {{/if}}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{{name}}</th>
+                {{#if ('notEmptyK' timestamps.k)}} {{#each ('sliceArray'
+                avgPressureConsumption)}}
+                <td>{{this}}</td>
+                {{/each}} {{else}}
+                <td>{{'isValueEmpty' avgPressureConsumption.[1]}}</td>
+                {{/if}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {{/each}}
+      </section>
+    </main>
+  </body>
+</html>

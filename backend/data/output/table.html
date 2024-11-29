@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rota PDF</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      .rota {
+        page-break-inside: avoid;
+        padding: 10px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        border: 0.5px solid black;
+      }
+      th,
+      td {
+        padding: 8px;
+        border: 0.5px solid black;
+      }
+      h2 {
+        text-align: center;
+      }
+      .pressure-table,
+      .time-table {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section class="table-data" style="page-break-after: always">
+        <h1>Probny 14</h1>
+        <p><b>ID tabeli: </b> 36</p>
+        <p><b>Kontroler: </b> 1</p>
+        <p><b>Lokalizacja: </b> stw</p>
+        <p><b>Data utworzenia: </b> 02.04.2024</p>
+        <p><b>Data zakończenia: </b> 02.04.2024</p>
+      </section>
+      <section>
+        <div class="rota" style="page-break-after: always">
+          <div class="rota-data">
+            <h2>R1</h2>
+            <p>Wzieła udział w akcji: Tak</p>
+            <p>
+              Czas akcji roty: 00:19
+            </p>
+          </div>
+          <table class="time-table">
+            <thead>
+              <tr>
+                <th>R1</th>
+                <th>wejście</th>
+                <th>dojście</th>
+                <th>kontrola 1</th>
+                <th>kontrola 2</th>
+                <th>wyjście</th>
+                <th>szac. odwrót</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>czas</td>
+                <td>19:06:57</td>
+                <td>19:07:06</td>
+                <td>19:07:11</td>
+                <td></td>
+                <td>19:07:16</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="pressure-table">
+            <thead>
+              <tr>
+                <th>R1</th>
+                <th>wejście</th>
+                <th>dojście</th>
+                <th>kontrola 1</th>
+                <th>kontrola 2</th>
+                <th>wyjście</th>
+                <th>szac. odwrót</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Maciej Żubr</th>
+                <td>370</td>
+                <td>300</td>
+                <td>250</td>
+                <td></td>
+                <td>100</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>Krzysztof Król</th>
+                <td>370</td>
+                <td>300</td>
+                <td>250</td>
+                <td></td>
+                <td>100</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rota" style="page-break-after: always">
+          <div class="rota-data">
+            <h2>RIT</h2>
+            <p>Wzieła udział w akcji: Nie</p>
+            <p>
+              Czas akcji roty: -
+            </p>
+          </div>
+          <table class="time-table">
+            <thead>
+              <tr>
+                <th>RIT</th>
+                <th>wejście</th>
+                <th>dojście</th>
+                <th>kontrola 1</th>
+                <th>kontrola 2</th>
+                <th>wyjście</th>
+                <th>szac. odwrót</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>czas</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="pressure-table">
+            <thead>
+              <tr>
+                <th>RIT</th>
+                <th>wejście</th>
+                <th>dojście</th>
+                <th>kontrola 1</th>
+                <th>kontrola 2</th>
+                <th>wyjście</th>
+                <th>szac. odwrót</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Maciej Kowal</th>
+                <td>350</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>Grzegorz Nowak</th>
+                <td>370</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
