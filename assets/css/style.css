@@ -79,6 +79,16 @@ img {
   transform: scale(1.1);
 }
 
+/* Spinner */
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  display: none;
+}
+
 /* Navbar */
 
 .navbar {
@@ -197,6 +207,26 @@ form label {
   border-color: var(--c-brand);
 }
 
+/* Team */
+.team-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-member {
+  flex-grow: 1;
+  background-color: var(--c-brand);
+  height: auto;
+  padding: 24px;
+  transition: var(--transition);
+  opacity: 0.9;
+}
+
+.team-member:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 /* Contact */
 #contact {
   position: relative;
@@ -232,7 +262,7 @@ form label {
 /* Footer */
 
 footer {
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 .footer-top {
@@ -241,8 +271,8 @@ footer {
 }
 
 .footer-bottom {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 footer li,

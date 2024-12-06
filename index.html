@@ -14,8 +14,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
   <body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Spinner -->
+    <div class="spinner spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white sticky-top">
       <div class="container">
@@ -42,6 +53,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#start">Jak zacząć</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team">Zespół</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Kontakt</a>
@@ -245,37 +259,107 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <form class="row g-3 p-lg-5 p-4 start theme-shadow">
+            <form
+              id="newUserForm"
+              class="row g-3 p-lg-5 p-4 start theme-shadow">
               <div class="form-group col-lg-12">
                 <input
                   type="text"
                   class="form-control"
                   id="newUserFirstName"
-                  placeholder="Podaj imię" />
+                  placeholder="Podaj imię"
+                  required />
               </div>
               <div class="form-group col-lg-12">
                 <input
                   type="text"
                   class="form-control"
                   id="newUserLastName"
-                  placeholder="Podaj nazwisko" />
+                  placeholder="Podaj nazwisko"
+                  required />
               </div>
               <div class="form-group col-lg-12">
                 <input
                   type="email"
                   class="form-control"
                   id="newUserEmail"
-                  placeholder="Podaj email" />
+                  placeholder="Podaj email"
+                  required />
+              </div>
+              <div class="form-group col-lg-12">
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="newUserPhoneNumber"
+                  placeholder="Podaj numer telefonu"
+                  maxlength="9"
+                  required />
               </div>
               <div class="form-group col-lg-12 d-grid mt-4">
-                <button
-                  type="submit"
-                  class="btn btn-brand"
-                  onclick="sendNewUserEmail()">
+                <button type="submit" class="btn btn-brand">
                   Wyślij zgłoszenie
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Team -->
+    <section id="team" class="section-padding border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="section-title">
+              <h1 class="display-4 fw-semibold">Nasz zespół</h1>
+              <div class="line"></div>
+              <p>
+                Jesteśmy zespołem który postanowił spróbować zastąpić tradycyjne
+                tablice w nowoczesny sposób.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center gy-4">
+          <div class="team-column col-md-6 col-lg-3">
+            <div class="team-member">
+              <h4 class="mb-0 text-white">Maciek</h4>
+              <label class="text-white">Strażak</label>
+              <p class="mb-0 mt-1 text-white">
+                Pomysłodawca projektu, dbał o funkcjonalność aplikacji,
+                przeprowadzał testy z jej działania
+              </p>
+            </div>
+          </div>
+          <div class="team-column col-md-6 col-lg-3">
+            <div class="team-member">
+              <h4 class="mb-0 text-white">Krystian</h4>
+              <label class="text-white">Strażak Programista</label>
+              <p class="mb-0 mt-1 text-white">
+                Pełnił rolę koordynatora projektu, zajmował się organizacją
+                serwera i domeny, a także wspierał komunikację między zespołem
+              </p>
+            </div>
+          </div>
+          <div class="team-column col-md-6 col-lg-3">
+            <div class="team-member">
+              <h4 class="mb-0 text-white">Wojtek</h4>
+              <label class="text-white">Praktykant Programista</label>
+              <p class="mb-0 mt-1 text-white">
+                Zrealizował aplikację od podstaw, tworząc zarówno frontend, jak
+                i backend, oraz uruchomił stronę na serwerze
+              </p>
+            </div>
+          </div>
+          <div class="team-column col-md-6 col-lg-3">
+            <div class="team-member">
+              <h4 class="mb-0 text-white">Szymon</h4>
+              <label class="text-white">Programista</label>
+              <p class="mb-0 mt-1 text-white">
+                Nadzorował techniczne aspekty projektu, oferując merytoryczne
+                wsparcie podczas tworzenia aplikacji
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -296,34 +380,41 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <form class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
+            <form
+              id="contactForm"
+              class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
               <div class="form-group col-lg-6">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Podaj imię"
-                  id="contactFirstName" />
+                  id="contactFirstName"
+                  required />
               </div>
               <div class="form-group col-lg-6">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Podaj nazwisko"
-                  id="contactLastName" />
+                  id="contactLastName"
+                  required />
               </div>
               <div class="form-group col-lg-12">
                 <input
                   type="email"
                   class="form-control"
                   placeholder="Podaj Email"
-                  id="contactEmail" />
+                  id="contactEmail"
+                  required />
               </div>
               <div class="form-group col-lg-12">
                 <input
-                  type="text"
+                  type="tel"
                   class="form-control"
-                  placeholder="Podaj temat pytania"
-                  id="contactSubject" />
+                  placeholder="Podaj numer telefonu"
+                  id="contactPhoneNumber"
+                  maxlength="9"
+                  required />
               </div>
               <div class="form-group col-lg-12">
                 <textarea
@@ -331,13 +422,11 @@
                   class="form-control"
                   rows="5"
                   placeholder="Napisz wiadomość"
-                  id="contactMessage"></textarea>
+                  id="contactMessage"
+                  required></textarea>
               </div>
               <div class="form-group col-lg-12 d-grid">
-                <button
-                  type="submit"
-                  class="btn btn-brand"
-                  onclick="sendContactEmail()">
+                <button type="submit" class="btn btn-brand">
                   Wyślij wiadomość
                 </button>
               </div>
@@ -351,7 +440,7 @@
       <div class="footer-top">
         <div class="container">
           <div class="row gx-5">
-            <div class="col-lg-5 col-sm-6">
+            <div class="col-sm-6 col-lg-5">
               <a href="#">
                 <img src="./assets/images/oxytimer-logo.png" alt="logo-dark" />
               </a>
@@ -360,24 +449,14 @@
                 ramach nauki programowania.
               </p>
             </div>
-            <div class="col-lg-4 col-sm-6">
-              <h5 class="mb-0 text-white">Członkowie zespołu</h5>
-              <div class="line"></div>
-
-              <ul>
-                <li>Maciek</li>
-                <li>Krystian</li>
-                <li>Wojtek</li>
-                <li>Szymon</li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="d-none d-lg-block col-lg-4"></div>
+            <div class="col-sm-6 col-lg-3">
               <h5 class="mb-0 text-white">Kontakt</h5>
               <div class="line"></div>
               <ul>
                 <li>37-450 Stalowa Wola</li>
+                <li>email: oxytimer24@gmail.com</li>
                 <li>tel: -</li>
-                <li>email: -</li>
               </ul>
             </div>
           </div>
@@ -392,7 +471,7 @@
             </div> -->
             <div class="col-auto">
               <p class="mb-0">
-                Designed by <a href="https://github.com/wojces">wojces</a>
+                Made by <a href="https://github.com/wojces">wojces</a>
               </p>
             </div>
           </div>
@@ -407,6 +486,10 @@
         //
       });
     </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/assets/js/config.js"></script>
     <script src="/assets/js/main.js"></script>
   </body>
 </html>
