@@ -1,52 +1,24 @@
-const mysql = require('mysql2');
-const path = require('path')
-const dotenv = require('dotenv').config({ path: path.resolve(__dirname, '../config/.env') })
+const mysql = require("mysql2/promise");
 
-let connection;
+const pool = mysql.createPool({
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
 
-const createConnection = () => {
-  connection = mysql.createConnection({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATATBASE
-  })
+// Utrzymywanie połączenia aktywnego
+setInterval(async () => {
+  try {
+    const conn = await pool.getConnection();
+    await conn.query("SELECT 1");
+    conn.release();
+  } catch (err) {
+    console.error("Błąd w zapytaniu podtrzymującym połączenie:", err);
+  }
+}, 60000);
 
-  //Łączenie z bazą danych
-  connection.connect((err) => {
-    if (err) {
-      console.error('Błąd połączenia z bazą danych: ' + err.stack);
-      setTimeout(createConnection, 2000);
-      return;
-    }
-    console.log('Połączono z bazą danych jako ID ' + connection.threadId);
-  });
-
-  //Obsługa utraty połączenia
-  connection.on('error', (err) => {
-    console.log("Błąd połączenia z bazą danych" + err.stack);
-    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-      createConnection();
-    } else {
-      throw err;
-    }
-
-  })
-
-  // Utrzymywanie aktywnego połączenia(proste zapytanie do bazy co minute)
-  setInterval(() => {
-    connection.query('SELECT 1', (err) => {
-      if (err) console.error('Błąd w zapytaniu podtrzymującym połączenie: ' + err.stack);
-    });
-  }, 60000);
-
-};
-
-createConnection();
-
-module.exports = connection.promise()
-
-
-
-
-
+module.exports = pool;
